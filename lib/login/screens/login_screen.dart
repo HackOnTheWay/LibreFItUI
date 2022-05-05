@@ -1,3 +1,6 @@
+import 'package:LibreFit/logic/login.dart';
+import 'package:LibreFit/login/screens/register_screen.dart';
+import 'package:LibreFit/navigation_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utilities/constants.dart';
@@ -27,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: kBoxDecorationStyle,
           height: 60.0,
           child: TextField(
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
               color: Colors.white,
@@ -62,6 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: kBoxDecorationStyle,
           height: 60.0,
           child: TextField(
+            controller: passController,
             obscureText: true,
             style: TextStyle(
               color: Colors.white,
@@ -101,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildRememberMeCheckbox() {
     return Container(
+      margin: EdgeInsets.fromLTRB(0, 32, 0, 8),
       height: 20.0,
       child: Row(
         children: <Widget>[
@@ -132,7 +138,9 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () {
+          _validateLogin();
+        },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
@@ -152,9 +160,31 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  void _validateLogin() {
+    String id = emailController.text;
+    String pass = passController.text;
+    if (id.isEmpty || pass.isEmpty) {
+      // TODO Prompt
+    } else {
+      login(id, pass).then((value) {
+        if (value) {
+          print('Authenticated');
+          print(refresh_token);
+          print(access_token);
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => NavigationHomeScreen()));
+        }
+      });
+    }
+  }
+
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () {
+        print('Sign Up Button Pressed');
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => RegisterScreen()));
+      },
       child: RichText(
         text: TextSpan(
           children: [
