@@ -1,5 +1,8 @@
-import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
-import 'package:best_flutter_ui_templates/fitness_app/training/training_screen.dart';
+import 'package:LibreFit/custom_drawer/drawer_user_controller.dart';
+import 'package:LibreFit/fitness_app/models/tabIcon_data.dart';
+import 'package:LibreFit/fitness_app/training/training_screen.dart';
+import 'package:LibreFit/fitness_app/reel/reel_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
@@ -45,6 +48,9 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
       color: FitnessAppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        drawer: Drawer(
+          child: DrawerUserController(),
+        ),
         body: FutureBuilder<bool>(
           future: getData(),
           builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
@@ -79,7 +85,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
           tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
-            if (index == 0 || index == 2) {
+            if (index == 0) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
@@ -89,7 +95,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                       MyDiaryScreen(animationController: animationController);
                 });
               });
-            } else if (index == 1 || index == 3) {
+            } else if (index == 1) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
@@ -99,7 +105,17 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                       TrainingScreen(animationController: animationController);
                 });
               });
-            }
+            } else if (index == 3) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      ReelScreen(animationController: animationController);
+                });
+              });
+            } // TODO index = 2, 3
           },
         ),
       ],

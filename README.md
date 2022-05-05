@@ -1,4 +1,4 @@
-# best_flutter_ui_templates
+# LibreFit
 
 A new Flutter project.
 

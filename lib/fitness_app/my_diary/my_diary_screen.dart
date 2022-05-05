@@ -1,10 +1,10 @@
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/body_measurement.dart';
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/glass_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/mediterranean_diet_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/title_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
-import 'package:best_flutter_ui_templates/fitness_app/my_diary/meals_list_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/my_diary/water_view.dart';
+import 'package:LibreFit/fitness_app/ui_view/body_measurement.dart';
+import 'package:LibreFit/fitness_app/ui_view/glass_view.dart';
+import 'package:LibreFit/fitness_app/ui_view/mediterranean_diet_view.dart';
+import 'package:LibreFit/fitness_app/ui_view/title_view.dart';
+import 'package:LibreFit/fitness_app/fitness_app_theme.dart';
+import 'package:LibreFit/fitness_app/my_diary/meals_list_view.dart';
+import 'package:LibreFit/fitness_app/my_diary/water_view.dart';
 import 'package:flutter/material.dart';
 
 class MyDiaryScreen extends StatefulWidget {
@@ -248,10 +248,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                           children: <Widget>[
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.fromLTRB(32, 0, 8, 8), //EdgeInsets.all(8.0),
                                 child: Text(
                                   'My Diary',
-                                  textAlign: TextAlign.left,
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
                                     fontWeight: FontWeight.w700,

@@ -1,20 +1,17 @@
-import 'package:LibreFit/fitness_app/ui_view/area_list_view.dart';
-import 'package:LibreFit/fitness_app/ui_view/running_view.dart';
-import 'package:LibreFit/fitness_app/ui_view/title_view.dart';
-import 'package:LibreFit/fitness_app/ui_view/workout_view.dart';
+//import 'package:LibreFit/fitness_app/ui_view/title_view.dart';
 import 'package:flutter/material.dart';
 
 import '../fitness_app_theme.dart';
 
-class TrainingScreen extends StatefulWidget {
-  const TrainingScreen({Key? key, this.animationController}) : super(key: key);
+class ReelScreen extends StatefulWidget {
+  const ReelScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _TrainingScreenState createState() => _TrainingScreenState();
+  _ReelScreenState createState() => _ReelScreenState();
 }
 
-class _TrainingScreenState extends State<TrainingScreen>
+class _ReelScreenState extends State<ReelScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -28,7 +25,6 @@ class _TrainingScreenState extends State<TrainingScreen>
         CurvedAnimation(
             parent: widget.animationController!,
             curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
-    addAllListData();
 
     scrollController.addListener(() {
       if (scrollController.offset >= 24) {
@@ -53,64 +49,6 @@ class _TrainingScreenState extends State<TrainingScreen>
       }
     });
     super.initState();
-  }
-
-  void addAllListData() {
-    const int count = 5;
-
-    listViews.add(
-      TitleView(
-        titleTxt: 'Your program',
-        subTxt: 'Details',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      WorkoutView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      RunningView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      TitleView(
-        titleTxt: 'Area of focus',
-        subTxt: 'more',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      AreaListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 5, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
-      ),
-    );
   }
 
   Future<bool> getData() async {
@@ -207,7 +145,7 @@ class _TrainingScreenState extends State<TrainingScreen>
                               child: Padding(
                                 padding: const EdgeInsets.fromLTRB(32, 0, 8, 8), //EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Training',
+                                  'Name',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -251,6 +189,7 @@ class _TrainingScreenState extends State<TrainingScreen>
                                     ),
                                   ),
                                   Text(
+                                    // TODO
                                     '15 May',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(

@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:LibreFit/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeDrawer extends StatefulWidget {
@@ -26,6 +26,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
         index: DrawerIndex.HOME,
         labelName: 'Home',
         icon: Icon(Icons.home),
+      ),
+      DrawerList(
+        index: DrawerIndex.Profile,
+        labelName: 'Profile',
+        isAssetsImage: true,
+        imageName: 'assets/fitness_app/tab_4.png',
       ),
       DrawerList(
         index: DrawerIndex.Help,
@@ -104,7 +110,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 4),
                     child: Text(
-                      'Chris Hemsworth',
+                      'MyName',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: AppTheme.grey,
@@ -267,6 +273,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
 
 enum DrawerIndex {
   HOME,
+  Profile,
   FeedBack,
   Help,
   Share,

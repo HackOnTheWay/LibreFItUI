@@ -1,5 +1,7 @@
 import 'dart:io';
-import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:LibreFit/app_theme.dart';
+
+import 'package:LibreFit/login/auth_trigger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'navigation_home_screen.dart';
@@ -33,7 +35,8 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      home: NavigationHomeScreen(),
+      home: AuthTrigger(),
+      // home: NavigationHomeScreen(),
     );
   }
 }
