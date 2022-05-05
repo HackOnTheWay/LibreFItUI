@@ -4,7 +4,6 @@ import 'package:LibreFit/app_theme.dart';
 import 'package:LibreFit/login/auth_trigger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'navigation_home_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {

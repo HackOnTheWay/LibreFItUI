@@ -13,6 +13,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool _rememberMe = false;
 
+  bool ueCheck = true;
+  bool passCheck = true;
+
   final emailController = TextEditingController();
   final passController = TextEditingController();
 
@@ -21,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Email',
+          'Email / User Name',
           style: kLabelStyle,
         ),
         SizedBox(height: 10.0),
@@ -43,8 +46,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 Icons.email,
                 color: Colors.white,
               ),
-              hintText: 'Enter your Email',
+              hintText: 'Enter your Email / User Name',
               hintStyle: kHintTextStyle,
+              errorText: ueCheck ? null : 'Email / User Name cannot be empty',
             ),
           ),
         ),
@@ -81,6 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               hintText: 'Enter your Password',
               hintStyle: kHintTextStyle,
+              errorText: passCheck ? null : 'Password cannot be empty',
             ),
           ),
         ),
@@ -163,8 +168,18 @@ class _LoginScreenState extends State<LoginScreen> {
   void _validateLogin() {
     String id = emailController.text;
     String pass = passController.text;
-    if (id.isEmpty || pass.isEmpty) {
-      // TODO Prompt
+    setState(() {
+      ueCheck = true;
+      passCheck = true;
+    });
+    if (id.isEmpty) {
+      setState(() {
+        ueCheck = false;
+      });
+    } else if (pass.isEmpty) {
+      setState(() {
+        passCheck = false;
+      });
     } else {
       login(id, pass).then((value) {
         if (value) {

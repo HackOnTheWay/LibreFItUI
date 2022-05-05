@@ -1,6 +1,4 @@
-import 'package:LibreFit/logic/login.dart';
 import 'package:LibreFit/logic/register.dart';
-import 'package:LibreFit/navigation_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utilities/constants.dart';
@@ -11,11 +9,19 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-
   final userController = TextEditingController();
   final emailController = TextEditingController();
   final passController1 = TextEditingController();
   final passController2 = TextEditingController();
+
+  bool userCheck = true;
+  bool emailCheck = true;
+  bool pass1Check = true;
+  bool pass2Check = true;
+
+  String empText = 'Field cannot be empty';
+  String matchText = 'Password does not match';
+  String dynText = 'Field cannot be empty';
 
   Widget _buildUserNameTF() {
     return Column(
@@ -34,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             controller: userController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
@@ -42,10 +48,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.email,
-                color: Colors.white,
+                color: Colors.black,
               ),
               hintText: 'Preffered User Name',
               hintStyle: kHintTextStyle,
+              errorText: userCheck ? null : 'User Name cannot be empty',
             ),
           ),
         ),
@@ -70,7 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             controller: emailController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
@@ -78,10 +85,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.email,
-                color: Colors.white,
+                color: Colors.black,
               ),
               hintText: 'Enter your Email',
               hintStyle: kHintTextStyle,
+              errorText: userCheck ? null : 'Email cannot be empty',
             ),
           ),
         ),
@@ -106,7 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             controller: passController1,
             obscureText: true,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
@@ -114,10 +122,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: Colors.black,
               ),
               hintText: 'Enter your Password',
               hintStyle: kHintTextStyle,
+              errorText: userCheck ? null : 'Password Field cannot be empty',
             ),
           ),
         ),
@@ -142,7 +151,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             controller: passController2,
             obscureText: true,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
@@ -150,10 +159,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: Colors.black,
               ),
               hintText: 'Re-Enter your Password',
               hintStyle: kHintTextStyle,
+              errorText: userCheck ? null : dynText,
             ),
           ),
         ),
@@ -167,8 +177,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
     String pass1 = passController1.text;
     String pass2 = passController2.text;
 
-    if (id.isEmpty || email.isEmpty || pass1.isEmpty || pass2.isEmpty) {
-      // TODO Prompt
+    setState(() {
+      userCheck = true;
+      emailCheck = true;
+      pass1Check = true;
+      pass2Check = true;
+    });
+
+    if (id.isEmpty) {
+      setState(() {
+        userCheck = false;
+      });
+    } else if (email.isEmpty) {
+      setState(() {
+        emailCheck = false;
+      });
+    } else if (pass1.isEmpty) {
+      setState(() {
+        pass1Check = false;
+      });
+    } else if (pass2.isEmpty) {
+      setState(() {
+        dynText = empText;
+        pass2Check = false;
+      });
+    } else if (pass1 != pass2) {
+      setState(() {
+        dynText = matchText;
+        pass2Check = false;
+      });
     } else {
       register(id, email, pass1).then((value) {
         if (value) {
@@ -192,7 +229,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
-        color: Colors.white,
+        color: Colors.black,
         child: Text(
           'SIGN UP',
           style: TextStyle(
@@ -247,7 +284,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Text(
                         'Sign In',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontFamily: 'OpenSans',
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,

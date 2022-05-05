@@ -17,7 +17,7 @@ class RegUser {
 
 Future<RegUser> _createRegUser(String id, String email, String pass) async {
   final response = await http.post(
-    Uri.parse('http://10.100.26.63:5000/api/auth/register'), // TODO
+    Uri.parse('http://10.100.26.63:5000/api/auth/register'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -42,7 +42,6 @@ Future<RegUser> _createRegUser(String id, String email, String pass) async {
 
 Future<bool> register(String id, String email, String pass) async {
   print('Register Invoked');
-  Future<RegUser> au;
   try {
     await _createRegUser(id, email, pass).then((value) {
       print('User Created.');
