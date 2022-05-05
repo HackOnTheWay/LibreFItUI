@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:LibreFit/app_theme.dart';
 
 import 'package:LibreFit/login/auth_trigger.dart';
+import 'package:LibreFit/navigation_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -34,8 +35,8 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      home: AuthTrigger(),
-      // home: NavigationHomeScreen(),
+      // home: AuthTrigger(),
+      home: NavigationHomeScreen(),
     );
   }
 }

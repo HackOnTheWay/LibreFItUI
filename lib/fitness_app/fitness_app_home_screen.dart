@@ -105,6 +105,20 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                       TrainingScreen(animationController: animationController);
                 });
               });
+            } else if (index == 2) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                /*
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ReelScreen()));
+                */
+                setState(() {
+                  tabBody =
+                      ReelScreen(animationController: animationController);
+                });
+              });
             } else if (index == 3) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
@@ -115,7 +129,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                       ReelScreen(animationController: animationController);
                 });
               });
-            } // TODO index = 2, 3
+            }
           },
         ),
       ],
