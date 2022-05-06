@@ -1,13 +1,12 @@
 import 'dart:math' as math;
 import 'package:LibreFit/fitness_app/fitness_app_theme.dart';
 import 'package:LibreFit/fitness_app/models/tabIcon_data.dart';
-import 'package:LibreFit/main.dart';
-import 'package:LibreFit/mux/mux_client.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
 import '../models/tabIcon_data.dart';
 import '../../reelupload/reels.dart';
+import '../reel/screens/my_upload.dart';
 
 class BottomBarView extends StatefulWidget {
   const BottomBarView(
@@ -171,7 +170,10 @@ class _BottomBarViewState extends State<BottomBarView>
                           highlightColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => MyUpload()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyUpload()));
                           },
                           child: Icon(
                             Icons.add,

@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "350265331123",
+    "project_id": "librefit-dev-reels",
+    "storage_bucket": "librefit-dev-reels.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350265331123:android:6e3effca9a3388860ccfc6",
+        "android_client_info": {
+          "package_name": "com.example.LibreFit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350265331123-tpre4sgj2c3ra3ece3i4a3vbcv5s994c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5NKJU1yUuTFVo2-jKZOWUI77NeX0iIsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350265331123-tpre4sgj2c3ra3ece3i4a3vbcv5s994c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "350265331123-pj7to210o9g40n2vr4if79pqndbpfs1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.reels"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350265331123:android:a21edc8b2b896df70ccfc6",
+        "android_client_info": {
+          "package_name": "com.example.reels"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350265331123-tpre4sgj2c3ra3ece3i4a3vbcv5s994c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5NKJU1yUuTFVo2-jKZOWUI77NeX0iIsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350265331123-tpre4sgj2c3ra3ece3i4a3vbcv5s994c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "350265331123-pj7to210o9g40n2vr4if79pqndbpfs1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.reels"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
