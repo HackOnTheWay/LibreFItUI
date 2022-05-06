@@ -1,8 +1,13 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import '../../../mux/mux_client.dart';
 import './like_icon.dart';
 import './options_screen.dart';
 import 'package:video_player/video_player.dart';
+import 'package:path/path.dart';
+import 'package:async/async.dart';
+import 'dart:io';
+import 'package:http/http.dart' as http;
 
 class ContentScreen extends StatefulWidget {
   final String? src;
@@ -69,10 +74,12 @@ class _ContentScreenState extends State<ContentScreen> {
                     Text('Loading...')
                   ],
                 ),
+          /*
           if (_liked)
             Center(
-              child: LikeIcon(),
+              child: MyUpload(),
             ),
+            */
           OptionsScreen()
         ],
       ),

@@ -1,14 +1,29 @@
 import 'dart:io';
 import 'package:LibreFit/app_theme.dart';
-
 import 'package:LibreFit/login/auth_trigger.dart';
 import 'package:LibreFit/navigation_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+import 'package:firebase_storage/firebase_storage.dart';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+// ...
+
+final storage = FirebaseStorage.instance;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  await Firebase.initializeApp();
+
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown

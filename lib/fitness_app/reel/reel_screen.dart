@@ -2,7 +2,6 @@
 import 'package:LibreFit/fitness_app/reel/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
-import '../fitness_app_theme.dart';
 
 class ReelScreen extends StatefulWidget {
   const ReelScreen({Key? key, this.animationController}) : super(key: key);
