@@ -22,6 +22,7 @@ class _MLScreenState extends State<MLScreen> with TickerProviderStateMixin {
   }
 
   File? imageFile;
+  String? result = '';
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +31,10 @@ class _MLScreenState extends State<MLScreen> with TickerProviderStateMixin {
       darkTheme: ThemeData.light(),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Food Analyzer", textAlign: TextAlign.center,),
-          
+          title: Text(
+            "Food Analyzer",
+            textAlign: TextAlign.center,
+          ),
         ),
         body: Column(
           children: [
@@ -72,10 +75,11 @@ class _MLScreenState extends State<MLScreen> with TickerProviderStateMixin {
             RaisedButton(
               color: Colors.lightGreenAccent,
               onPressed: () {
-               Upload(imageFile!);
+                Upload(imageFile!);
               },
               child: Text("Analyze"),
             ),
+            Text(result!),
           ],
         ),
       ),
@@ -119,7 +123,8 @@ class _MLScreenState extends State<MLScreen> with TickerProviderStateMixin {
     var request = new http.MultipartRequest("POST", uri);
     // var multipartFile = new http.MultipartFile('file', stream, length,
     //     ip_img: 'ip_img');
-    request.files.add(new http.MultipartFile('ip_img', stream, length, filename: basename(imageFile.path)));
+    request.files.add(new http.MultipartFile('ip_img', stream, length,
+        filename: basename(imageFile.path)));
     // print(multipartFile.toString());
     //contentType: new MediaType('image', 'png'));
 
@@ -127,7 +132,8 @@ class _MLScreenState extends State<MLScreen> with TickerProviderStateMixin {
     var response = await request.send();
     print(response.statusCode);
     response.stream.transform(utf8.decoder).listen((value) {
-        print(value);
-      });
+      setState(() => result= value);
+      print(value);
+    });
   }
 }
