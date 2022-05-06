@@ -1,4 +1,5 @@
 import 'package:LibreFit/custom_drawer/drawer_user_controller.dart';
+import 'package:LibreFit/fitness_app/ml/ml.dart';
 import 'package:LibreFit/fitness_app/models/tabIcon_data.dart';
 import 'package:LibreFit/fitness_app/training/training_screen.dart';
 import 'package:LibreFit/fitness_app/reel/reel_screen.dart';
@@ -116,7 +117,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 */
                 setState(() {
                   tabBody =
-                      ReelScreen(animationController: animationController);
+                      MLScreen(animationController: animationController);
                 });
               });
             } else if (index == 3) {

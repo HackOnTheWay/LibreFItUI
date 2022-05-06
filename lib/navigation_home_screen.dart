@@ -2,6 +2,7 @@ import 'package:LibreFit/app_theme.dart';
 import 'package:LibreFit/custom_drawer/drawer_user_controller.dart';
 import 'package:LibreFit/custom_drawer/home_drawer.dart';
 import 'package:LibreFit/feedback_screen.dart';
+import 'package:LibreFit/fitness_app/profile/profile_screen.dart';
 import 'package:LibreFit/help_screen.dart';
 import 'package:LibreFit/invite_friend_screen.dart';
 import 'package:LibreFit/fitness_app/fitness_app_home_screen.dart';
@@ -60,6 +61,12 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         case DrawerIndex.Help:
           setState(() {
             screenView = HelpScreen();
+          });
+          break;
+        case DrawerIndex.Profile:
+          setState(() {
+            //Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePageRoot()));
+             screenView = ProfilePageRoot();
           });
           break;
         case DrawerIndex.FeedBack:

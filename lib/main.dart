@@ -11,7 +11,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-// ...
 
 final storage = FirebaseStorage.instance;
 
@@ -50,8 +49,8 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      // home: AuthTrigger(),
-      home: NavigationHomeScreen(),
+      home: AuthTrigger(),
+      //home: NavigationHomeScreen(),
     );
   }
 }

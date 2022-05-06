@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:LibreFit/fitness_app/profile/utils/user_profile.dart';
 import 'package:http/http.dart' as http;
 
 String access_token = '';
@@ -52,6 +53,7 @@ Future<bool> login(String id, String pass) async{
       access_token = value.access_token;
       refresh_token = value.refresh_token;
       print('Tokens Generated');
+      getProfile();
     });
   } catch (e) {
     print('Error');

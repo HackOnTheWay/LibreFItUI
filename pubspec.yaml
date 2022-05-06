@@ -46,6 +46,12 @@ dependencies:
     dio: ^4.0.6
     image_picker: ^0.8.5
 
+    # switch animation between light and dark theme
+    animated_theme_switcher: ^2.0.1-nullsafety.0
+
+    # store image
+    path_provider: ^2.0.1
+
 dev_dependencies:
     flutter_test:
         sdk: flutter
